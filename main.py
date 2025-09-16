@@ -7,6 +7,9 @@ app = FastAPI()
 class DocumentRequest(BaseModel):
     category: str
     text: str
+@app.get("/")
+def root():
+    return {"message": "Service is running!"}
 
 @app.post("/extract")
 async def extract(req: DocumentRequest):
